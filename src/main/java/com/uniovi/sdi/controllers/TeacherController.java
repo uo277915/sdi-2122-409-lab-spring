@@ -30,7 +30,7 @@ public class TeacherController {
     }
 
     @RequestMapping("/teacher/delete/{id}")
-    public String deleteTeacher(@PathVariable int id) {
+    public String deleteTeacher(@PathVariable Long id) {
         teachersService.deleteTeacher(id);
         return "Profesor eliminado con exito!";
     }
@@ -42,7 +42,8 @@ public class TeacherController {
 
     @RequestMapping(value = "/teacher/edit/{id}", method = RequestMethod.POST)
     public String setEdit(@ModelAttribute Teacher teacher, @PathVariable Long id) {
-        teachersService.editTeacher(id.intValue(), teacher);
+        teacher.setId(id);
+        teachersService.addTeacher(teacher);
         return "Profesor editado con exito! \n " + teachersService.getTeacher(id).toString();
     }
 }
