@@ -2,10 +2,10 @@
 
 Arreglado el commit:
 
-    "SDI-2021-409-2.3-Beans, servicios e inyección de dependencias."
+    "SDI-2021-409-2.4-Modelo, acceso a datos simple."
 
-[Enlace al antiguo commit](https://github.com/uo277915/sdi2122-409-lab-spring/commit/cb7651419e221d827036dd46d7c4f9fcf9684f4f)
+[Enlace al antiguo commit](https://github.com/uo277915/sdi2122-409-lab-spring/commit/c702b23167b713ff41e44c7eecbbd482cd31b6c5)
 
 Por:
 
-    "SDI-2122-409-2.3-Beans, servicios e inyección de dependencias."
+    "SDI-2122-409-2.4-Modelo, acceso a datos simple."
