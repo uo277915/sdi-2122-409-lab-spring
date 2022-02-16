@@ -19,7 +19,7 @@ public class TeacherController {
     @RequestMapping("/professor/list")
     public String getList(Model model) {
         model.addAttribute("teacherList", teachersService.getTeachers());
-        return "teacher/list";
+        return "professor/list";
     }
 
     @RequestMapping(value = "/professor/add", method = RequestMethod.POST)
@@ -36,19 +36,19 @@ public class TeacherController {
 
     @RequestMapping(value = "/professor/add")
     public String getTeacher() {
-        return "teacher/add";
+        return "professor/add";
     }
 
     @RequestMapping("/professor/details/{id}")
     public String getDetail(Model model, @PathVariable Long id) {
         model.addAttribute("teacher", teachersService.getTeacher(id));
-        return "teacher/details";
+        return "professor/details";
     }
 
     @RequestMapping(value = "/professor/edit/{id}")
     public String getEdit(Model model, @PathVariable Long id) {
         model.addAttribute("teacher", teachersService.getTeacher(id));
-        return "teacher/edit";
+        return "professor/edit";
     }
 
     @RequestMapping(value = "/professor/edit/{id}", method = RequestMethod.POST)

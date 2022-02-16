@@ -89,6 +89,8 @@
                 <td th:text="${teacher.name}">Juan</td>
                 <td th:text="${teacher.surname}">Juanez</td>
                 <td th:text="${teacher.category}">Matemáticas</td>
+                <td><a th:href="${'/professor/details/' + teacher.id}">detalles</a></td>
+                <td><a th:href="${'/professor/edit/' + teacher.id}">modificar</a></td>
                 <td><a th:href="${'/professor/delete/' + teacher.id}">eliminar</a></td>
             </tr>
             </tbody>
