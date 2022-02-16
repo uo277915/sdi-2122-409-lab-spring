@@ -3,47 +3,58 @@ package com.uniovi.sdi.controllers;
 import com.uniovi.sdi.entities.Teacher;
 import com.uniovi.sdi.services.TeachersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@RestController
+@Controller
 public class TeacherController {
 
-    @Autowired
+    @Autowired //Inyectar el servicio
     private TeachersService teachersService;
 
-    @RequestMapping("/teacher/list")
+    @RequestMapping("/professor/list")
     public String getList(Model model) {
-        String str = "";
-
-        for (Teacher teacher : teachersService.getTeachers()) {
-            str += teacher.toString() + "\n\n";
-        }
-
-        return str;
+        model.addAttribute("teacherList", teachersService.getTeachers());
+        return "teacher/list";
     }
 
-    @RequestMapping(value = "/teacher/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/professor/add", method = RequestMethod.POST)
     public String setTeacher(@ModelAttribute Teacher teacher) {
         teachersService.addTeacher(teacher);
-        return "Profesor con datos: " + teacher.toString() + " ha sido añadido!";
+        return "redirect:/professor/list";
     }
 
-    @RequestMapping("/teacher/delete/{id}")
+    @RequestMapping("/professor/delete/{id}")
     public String deleteTeacher(@PathVariable Long id) {
         teachersService.deleteTeacher(id);
-        return "Profesor eliminado con exito!";
+        return "redirect:/professor/list";
     }
 
-    @RequestMapping("/teacher/details/{id}")
+    @RequestMapping(value = "/professor/add")
+    public String getTeacher() {
+        return "teacher/add";
+    }
+
+    @RequestMapping("/professor/details/{id}")
     public String getDetail(Model model, @PathVariable Long id) {
-        return teachersService.getTeacher(id).toString();
+        model.addAttribute("teacher", teachersService.getTeacher(id));
+        return "teacher/details";
     }
 
-    @RequestMapping(value = "/teacher/edit/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/professor/edit/{id}")
+    public String getEdit(Model model, @PathVariable Long id) {
+        model.addAttribute("teacher", teachersService.getTeacher(id));
+        return "teacher/edit";
+    }
+
+    @RequestMapping(value = "/professor/edit/{id}", method = RequestMethod.POST)
     public String setEdit(@ModelAttribute Teacher teacher, @PathVariable Long id) {
         teacher.setId(id);
         teachersService.addTeacher(teacher);
-        return "Profesor editado con exito! \n " + teachersService.getTeacher(id).toString();
+        return "redirect:/professor/details/" + id;
     }
 }
