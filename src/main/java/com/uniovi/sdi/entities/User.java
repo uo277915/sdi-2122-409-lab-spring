@@ -5,6 +5,7 @@ import java.util.Set;
 
 //A collection that contains no duplicate elements
 @Entity
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue
@@ -16,6 +17,12 @@ public class User {
     private String role;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Mark> marks;
+
+    private String password;
+
+    @Transient //propiedad que no se almacena e la tabla.
+    private String passwordConfirm;
+
 
     public User(String dni, String name, String lastName) {
         super();
@@ -70,4 +77,21 @@ public class User {
     public String getFullName() {
         return this.name + " " + this.lastName;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+
 }
