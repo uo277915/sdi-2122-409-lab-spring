@@ -7,14 +7,27 @@
     <div class="collapse navbar-collapse" id="#myNavbar">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item "><a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a></li>
-            <li class="nav-item dropdown "><a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                              role="button" data-toggle="dropdown" aria-haspopup="true"
-                                              aria-expanded="false"> Gestión de notas </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown"><a class="dropdown-item" href="/mark/list">Ver
-                    Notas</a> <a class="dropdown-item" href="/mark/add">Agregar Nota</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/mark/filter">Filtrar</a></div>
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                   role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"> Gestión de notas </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/mark/add">Agregar Nota</a>
+                    <a class="dropdown-item" href="/mark/list">Ver Notas</a>
+                </div>
             </li>
+
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Gestión de usuarios
+                </a>
+                <div class="dropdown-menu" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="/user/add">Agregar Usuario</a>
+                    <a class="dropdown-item" href="/user/list">Ver Usuarios</a>
+                </div>
+            </li>
+
             <li class="nav-item dropdown "><a class="nav-link dropdown-toggle" href="#" id="profesorDropdown"
                                               role="button" data-toggle="dropdown" aria-haspopup="true"
                                               aria-expanded="false"> Gestión de profesores </a>
