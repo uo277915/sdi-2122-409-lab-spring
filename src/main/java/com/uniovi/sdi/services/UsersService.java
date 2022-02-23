@@ -38,6 +38,14 @@ public class UsersService {
         usersRepository.save(user);
     }
 
+    public void editUser(User previousUser, User newUser) {
+        previousUser.setDni(newUser.getDni());
+        previousUser.setName(newUser.getName());
+        previousUser.setLastName(newUser.getLastName());
+
+        usersRepository.save(previousUser);
+    }
+
     public User getUserByDni(String dni) {
         return usersRepository.findByDni(dni);
     }
