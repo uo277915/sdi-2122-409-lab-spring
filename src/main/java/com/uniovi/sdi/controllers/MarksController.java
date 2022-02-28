@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
+import java.util.HashSet;
+import java.util.Set;
+
 @Controller
 public class MarksController {
 
@@ -27,8 +31,16 @@ public class MarksController {
     @Autowired
     private AddMarkValidator addMarkValidator;
 
+    @Autowired
+    private HttpSession httpSession;
+
     @RequestMapping("/mark/list")
     public String getList(Model model) {
+        Set<Mark> consultedList= (Set<Mark>) httpSession.getAttribute("consultedList");
+        if ( consultedList == null ) {
+            consultedList = new HashSet<Mark>();
+        }
+        model.addAttribute("consultedList", consultedList);
         model.addAttribute("markList", marksService.getMarks());
         return "mark/list";
     }
