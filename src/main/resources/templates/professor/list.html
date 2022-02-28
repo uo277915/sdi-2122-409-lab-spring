@@ -24,20 +24,20 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="teacher : ${teacherList}">
-                <td scope="row" th:text="${teacher.id}"> 1</td>
-                <td th:text="${teacher.dni}"> Profesor 1</td>
-                <td th:text="${teacher.name}">Juan</td>
-                <td th:text="${teacher.surname}">Juanez</td>
-                <td th:text="${teacher.category}">Matemáticas</td>
-                <td><a th:href="${'/professor/details/' + teacher.id}">detalles</a></td>
-                <td><a th:href="${'/professor/edit/' + teacher.id}">modificar</a></td>
-                <td><a th:href="${'/professor/delete/' + teacher.id}">eliminar</a></td>
+            <tr th:each="professor : ${professorList}">
+                <td scope="row" th:text="${professor.id}"> 1</td>
+                <td th:text="${professor.dni}"> Profesor 1</td>
+                <td th:text="${professor.name}">Juan</td>
+                <td th:text="${professor.surname}">Juanez</td>
+                <td th:text="${professor.category}">Matemáticas</td>
+                <td><a th:href="${'/professor/details/' + professor.id}">detalles</a></td>
+                <td><a th:href="${'/professor/edit/' + professor.id}">modificar</a></td>
+                <td><a th:href="${'/professor/delete/' + professor.id}">eliminar</a></td>
             </tr>
             </tbody>
         </table>
     </div>
-    <div th:if="${#lists.isEmpty(teacherList)}"> No hay profesores.</div>
+    <div th:if="${#lists.isEmpty(professorList)}"> No hay profesores.</div>
 </div>
 
 <footer th:replace="fragments/footer"></footer>

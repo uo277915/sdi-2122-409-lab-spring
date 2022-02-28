@@ -34,10 +34,11 @@ public class MarksController {
     }
 
     @RequestMapping(value = "/mark/add", method = RequestMethod.POST)
-    public String setMark(@Validated Mark mark, BindingResult result) {
+    public String setMark(@Validated Mark mark, BindingResult result, Model model) {
         addMarkValidator.validate(mark, result);
 
         if (result.hasErrors()) {
+            model.addAttribute("usersList", usersService.getUsers());
             return "/mark/add";
         }
         marksService.addMark(mark);
