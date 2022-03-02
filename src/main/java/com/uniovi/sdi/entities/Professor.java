@@ -25,6 +25,14 @@ public class Professor {
         this.category = category;
     }
 
+    public Professor(String dni, String name, String surname, String category) {
+        super();
+        this.dni = dni;
+        this.name = name;
+        this.surname = surname;
+        this.category = category;
+    }
+
     @Override
     public String toString() {
         return "Professor{" +
