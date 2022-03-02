@@ -39,9 +39,9 @@ public class InsertSampleDataService {
         User user6 = new User("99999988F", "Edward", "Núñez");
         user6.setPassword("123456");
         user6.setRole(rolesService.getRoles()[2]);
-        User user7 = new User("admin", "Edward", "Núñez");
-        user7.setPassword("admin");
-        user7.setRole(rolesService.getRoles()[2]);
+        User admin = new User("admin", "admin", "admin");
+        admin.setPassword("admin");
+        admin.setRole(rolesService.getRoles()[2]);
 
         Set user1Marks = new HashSet<Mark>() {
             {
@@ -84,7 +84,7 @@ public class InsertSampleDataService {
         usersService.addUser(user4);
         usersService.addUser(user5);
         usersService.addUser(user6);
-        usersService.addUser(user7);
+        usersService.addUser(admin);
 
         Professor prof1 = new Professor("99999965A", "Juan", "Pérez", "Matemáticas");
         Professor prof2 = new Professor("99991231F", "Peter", "Grieffing", "Lengua");
